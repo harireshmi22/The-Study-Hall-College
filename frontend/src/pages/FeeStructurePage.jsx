@@ -3,9 +3,11 @@ import bbaImage from '../assets/study.jpeg'
 import bcaImage from '../assets/library.jpeg'
 import bcomImage from '../assets/about1.jpg'
 import bajmcImage from '../assets/about2.jpg'
+import CourseSelectionQuiz from '../components/CourseSelectionQuiz'
 
 const FeeStructurePage = () => {
   const [selectedCourse, setSelectedCourse] = useState('bba')
+  const [showQuiz, setShowQuiz] = useState(false)
 
   const courses = [
     {
@@ -146,6 +148,11 @@ const FeeStructurePage = () => {
     return feeStructure.reduce((total, fee) => total + fee.amount, 0)
   }
 
+  const handleQuizResult = (course) => {
+    setSelectedCourse(course.toLowerCase())
+    setShowQuiz(false)
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
@@ -166,6 +173,13 @@ const FeeStructurePage = () => {
             <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Transparent pricing with no hidden costs. Quality education that delivers value.
             </p>
+            <button
+              onClick={() => setShowQuiz(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur border border-white/30 rounded-xl text-white font-semibold hover:bg-white/30 transition-all duration-300"
+            >
+              <span className="text-xl">🎯</span>
+              Don't know what to choose? Take a test
+            </button>
           </div>
         </div>
       </section>
@@ -360,6 +374,14 @@ const FeeStructurePage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Course Selection Quiz Modal */}
+      {showQuiz && (
+        <CourseSelectionQuiz
+          onClose={() => setShowQuiz(false)}
+          onResult={handleQuizResult}
+        />
+      )}
     </div>
   )
 }

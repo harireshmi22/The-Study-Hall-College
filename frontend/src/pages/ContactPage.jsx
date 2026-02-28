@@ -1,5 +1,4 @@
 import React from 'react'
-import study from '../assets/study.jpeg'
 import img6 from '../assets/img6.jpg'
 
 const ContactPage = () => {

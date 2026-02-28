@@ -42,7 +42,7 @@ const Navbar = ({ currentPage, onNavigate }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="flex flex-col text-responsive-xs font-semibold tracking-tight">
-            <div className='flex'>
+            <div className='flex' onClick={() => onNavigate('home')}>
               <img src={studyLogo} alt="Study Hall College" className="h-20 w-auto" />
             </div>
           </div>

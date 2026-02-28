@@ -145,6 +145,7 @@ const HomePage = ({ onNavigate }) => {
         </div>
       </AnimatedSection>
 
+    <AnimatedSection delay={0.5}>
       {/* Campus Life Section */}
       <section className="space-y-6 border border-gray-200 rounded-3xl p-6 md:p-8 bg-white animate-fade-up">
         <header className="text-center space-y-3">
@@ -200,7 +201,9 @@ const HomePage = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+    <AnimatedSection delay={0.6}>
       {/* Student Achievements Section */}
       <section className="space-y-6 flex flex-col items-center justify-center border border-gray-200 rounded-3xl bg-white p-6 md:p-8">
         <header className="text-center space-y-3">
@@ -243,6 +246,7 @@ const HomePage = ({ onNavigate }) => {
           </button>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Facilities Section */}
       <section className="space-y-6 border border-gray-200 rounded-3xl bg-white p-6 md:p-8">
@@ -259,8 +263,8 @@ const HomePage = ({ onNavigate }) => {
         </header>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-
+          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 animate-slide-in-left">
+            
             <div className="h-64 bg-linear-to-br from-blue-100 to-purple-100 flex items-center justify-center">
               <div className="text-slate-600 flex items-center justify-center w-full h-full object-cover">
                 {/* Library image visually handled in hero; keep this as a soft gradient card */}
@@ -290,9 +294,10 @@ const HomePage = ({ onNavigate }) => {
                 </li>
               </ul>
             </div>
+          
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 animate-slide-in-right">
             <div className="h-64 bg-linear-to-br from-green-100 to-emerald-100 flex items-center justify-center">
               <div className="text-responsive-lg font-medium text-slate-600">💻 Tech Labs & Innovation</div>
             </div>

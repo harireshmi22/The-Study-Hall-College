@@ -230,9 +230,9 @@ const CampusDiary = () => {
           <span className="text-responsive-sm text-slate-600">
             Want to be part of our next campus story?
           </span>
-          <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500 via-rose-500 to-blue-500 px-4 py-2 text-responsive-xs font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+          <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500 via-rose-500 to-blue-500 px-4 py-2 font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-responsive-xs w-32">
             Join Events
-            <span className="text-xs">→</span>
+            <span className="text-sm">→</span>
           </button>
         </div>
       </div>

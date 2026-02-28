@@ -1,5 +1,5 @@
 import React from 'react'
-
+import study from '../assets/study.jpeg'
 const Footer = ({ onNavigate }) => {
   return (
     <footer className="mt-10 bg-slate-900 text-slate-100 pt-10 pb-6">
@@ -7,8 +7,8 @@ const Footer = ({ onNavigate }) => {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-red-500 via-rose-500 to-blue-500 flex items-center justify-center text-responsive-xs font-semibold tracking-tight shadow-lg shadow-red-500/40">
-                SH
+              <div className="h-12 w-12 ">
+                <img src={study} alt="Study Hall College" className="h-12 w-12 object-contain" />
               </div>
               <div className="leading-tight">
                 <p className="text-sm font-semibold tracking-tight">

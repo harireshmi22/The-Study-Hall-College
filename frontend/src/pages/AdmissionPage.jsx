@@ -1,169 +1,295 @@
-import React from 'react'
+import React, { useState } from 'react'
 import group from '../assets/group.jpeg'
-
-const steps = [
-  {
-    label: 'Explore & shortlist',
-    detail:
-      'Attend an open house or a virtual walk-through of our study halls, then shortlist 1–2 programs.',
-    tone: 'from-blue-500 to-sky-500',
-  },
-  {
-    label: 'Apply with intention',
-    detail:
-      'Submit your academic records and a short intent note describing how you like to study.',
-    tone: 'from-red-500 to-rose-500',
-  },
-  {
-    label: 'Conversation, not panel',
-    detail:
-      'Have a 1:1 conversation with a faculty mentor focused on fit and learning style.',
-    tone: 'from-rose-500 to-blue-500',
-  },
-  {
-    label: 'Offer & onboarding',
-    detail:
-      'Receive your offer, confirm, and join our &quot;Week Zero&quot; orientation for schedules and tools.',
-    tone: 'from-slate-500 to-blue-500',
-  },
-]
+import library from '../assets/library.jpeg'
+import study from '../assets/study.jpeg'
+import about1 from '../assets/about1.jpg'
 
 const AdmissionPage = () => {
-  return (
-    <div className="space-y-10 animate-fade-up">
-      {/* Intro + visual card */}
-      <section className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center">
-        <header className="space-y-4">
-          <p className="text-sm uppercase tracking-[0.3em] text-slate-500">
-            Admission
-          </p>
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
-            A calm, clear admission journey — no guesswork.
-          </h1>
-          <p className="text-sm text-slate-600 max-w-2xl">
-            We keep our admission process transparent and human. Fewer stress points, fewer
-            surprises, and more time to understand whether The Study Hall College feels right
-            for you and your family.
-          </p>
+  const [activeTab, setActiveTab] = useState('undergraduate')
 
-          <div className="grid gap-4 sm:grid-cols-3 text-xs text-slate-600">
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 space-y-1 shadow-sm">
-              <p className="text-sm font-semibold text-slate-900">Guided support</p>
-              <p>Dedicated admission mentors to answer questions at every step.</p>
+  const programs = [
+    {
+      id: 'undergraduate',
+      name: 'Undergraduate Programs',
+      courses: ['BBA', 'BCA', 'BJMC', 'BCom'],
+      duration: '3 Years',
+      eligibility: '10+2 with 50% marks'
+    },
+    {
+      id: 'postgraduate',
+      name: 'Postgraduate Programs',
+      courses: ['MBA', 'MCA', 'MJMC', 'MCom'],
+      duration: '2 Years',
+      eligibility: 'Graduation with 50% marks'
+    }
+  ]
+
+  const admissionSteps = [
+    {
+      number: '01',
+      title: 'Choose Your Program',
+      description: 'Explore our diverse range of programs and select the one that aligns with your career goals.',
+      icon: '🎯'
+    },
+    {
+      number: '02',
+      title: 'Fill Application Form',
+      description: 'Complete the online application form with your personal and academic details.',
+      icon: '📝'
+    },
+    {
+      number: '03',
+      title: 'Submit Documents',
+      description: 'Upload required documents including mark sheets, certificates, and photographs.',
+      icon: '📄'
+    },
+    {
+      number: '04',
+      title: 'Pay Application Fee',
+      description: 'Pay the non-refundable application fee of ₹1000 through secure online payment.',
+      icon: '💳'
+    },
+    {
+      number: '05',
+      title: 'Personal Interview',
+      description: 'Attend a personal interview with our faculty to discuss your aspirations.',
+      icon: '👥'
+    },
+    {
+      number: '06',
+      title: 'Receive Admission',
+      description: 'Get your admission offer and complete the enrollment process.',
+      icon: '🎓'
+    }
+  ]
+
+  const importantDates = [
+    { event: 'Application Start', date: 'March 1, 2025', status: 'upcoming' },
+    { event: 'Application Deadline', date: 'May 31, 2025', status: 'upcoming' },
+    { event: 'Entrance Exam', date: 'June 15, 2025', status: 'upcoming' },
+    { event: 'Result Declaration', date: 'June 30, 2025', status: 'upcoming' },
+    { event: 'Academic Session', date: 'July 20, 2025', status: 'upcoming' }
+  ]
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-4 py-2 text-sm font-semibold">
+                <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+                Admissions Open 2025-26
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+                Start Your
+                <span className="block text-2xl md:text-4xl text-blue-100 mt-2">
+                  Journey to Excellence
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+                Join a community of learners and leaders. Transform your future with quality education and endless opportunities.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="px-6 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300">
+                  Apply Now
+                </button>
+                <button className="px-6 py-3 bg-white/20 backdrop-blur border border-white/30 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300">
+                  Download Brochure
+                </button>
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 space-y-1 shadow-sm">
-              <p className="text-sm font-semibold text-slate-900">Holistic view</p>
-              <p>We look at intent, effort, and fit — not just marks.</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 space-y-1 shadow-sm">
-              <p className="text-sm font-semibold text-slate-900">Clarity first</p>
-              <p>Clear timelines, documentation lists, and fee details from day one.</p>
+            <div className="relative">
+              <img
+                src={group}
+                alt="Students"
+                className="rounded-3xl shadow-2xl w-full h-auto"
+              />
             </div>
           </div>
-        </header>
+        </div>
+      </section>
 
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-lg">
-          <div className="absolute inset-0 bg-gradient-to-tr from-rose-900/70 via-slate-800/40 to-blue-900/70 mix-blend-multiply" />
-          <img
-            src={group}
-            alt="Students and mentors in conversation about admissions"
-            className="h-56 w-full object-cover md:h-64"
-          />
-          <div className="absolute inset-0 p-5 flex flex-col justify-between text-white">
-            <div className="space-y-1">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-200">
-                Admission guidance
-              </p>
-              <p className="text-sm font-semibold">
-                Join small, focused information sessions in our study halls — not noisy fairs.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3 text-[11px] text-slate-100">
-              <div>
-                <p className="text-base font-semibold">1:1</p>
-                <p>Conversations with faculty mentors instead of panels.</p>
+      {/* Program Selection */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Choose Your Program</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Select from our wide range of undergraduate and postgraduate programs
+          </p>
+        </div>
+
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-xl bg-gray-100 p-1">
+            {programs.map((program) => (
+              <button
+                key={program.id}
+                onClick={() => setActiveTab(program.id)}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  activeTab === program.id
+                    ? 'bg-white text-blue-600 shadow-md'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                {program.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {programs.find(p => p.id === activeTab)?.courses.map((course, index) => (
+            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+              <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                <span className="text-2xl font-bold text-gray-700">{course}</span>
               </div>
-              <div>
-                <p className="text-base font-semibold">7 days</p>
-                <p>Quiet window to decide after you receive an offer.</p>
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-bold text-gray-900">{course}</h3>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Duration:</span>
+                    <span className="font-semibold">{programs.find(p => p.id === activeTab)?.duration}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Eligibility:</span>
+                    <span className="font-semibold">{programs.find(p => p.id === activeTab)?.eligibility}</span>
+                  </div>
+                </div>
+                <button className="w-full py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Admission Process */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Admission Process</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Simple 6-step process to secure your admission
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {admissionSteps.map((step, index) => (
+              <div key={index} className="relative group">
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">{step.icon}</div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm font-bold text-blue-600">{step.number}</span>
+                        <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
+                      </div>
+                      <p className="text-gray-600 text-sm">{step.description}</p>
+                    </div>
+                  </div>
+                </div>
+                {index < admissionSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-300 transform -translate-y-1/2" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Important Dates */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Important Dates</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Stay updated with key admission dates
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-xl p-8">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {importantDates.map((item, index) => (
+              <div key={index} className="text-center p-4 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors">
+                <div className="text-sm text-gray-600 mb-2">{item.event}</div>
+                <div className="text-lg font-bold text-gray-900">{item.date}</div>
+                <div className="mt-2">
+                  <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                    {item.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Campus Life */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Life at Campus</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Experience vibrant campus life with modern facilities
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <img src={library} alt="Library" className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Modern Library</h3>
+                <p className="text-gray-600">Access to thousands of books, journals, and digital resources in our state-of-the-art library.</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <img src={study} alt="Study Area" className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Smart Classrooms</h3>
+                <p className="text-gray-600">Interactive learning spaces equipped with modern technology for enhanced education.</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <img src={about1} alt="Campus" className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Sports Complex</h3>
+                <p className="text-gray-600">Comprehensive sports facilities for physical fitness and recreational activities.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
-        <ol className="relative space-y-5">
-          <div className="absolute left-3 top-1 bottom-4 w-px bg-slate-200" />
-          {steps.map((step, index) => (
-            <li key={step.label} className="relative pl-10">
-              <div
-                className={`absolute left-0 top-1 h-6 w-6 rounded-full bg-gradient-to-br ${step.tone} flex items-center justify-center text-[10px] font-semibold text-white shadow-md shadow-red-500/30`}
-              >
-                {index + 1}
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 space-y-1.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                <p className="text-base font-semibold text-slate-900">
-                  {step.label}
-                </p>
-                <p className="text-sm text-slate-600">{step.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <aside className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 space-y-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-500">
-              Unique idea · Quiet Window
-            </p>
-            <h2 className="text-sm font-semibold text-slate-900">
-              A dedicated &quot;Quiet Window&quot; for decisions.
-            </h2>
-            <p className="text-xs text-slate-600">
-              For 7 days after you receive an offer, we block all non-essential
-              communication so you can think, visit other campuses, and talk
-              with your family without constant pings.
-            </p>
-            <ul className="space-y-1.5 text-[11px] text-slate-600">
-              <li>• No marketing calls or emails during your window.</li>
-              <li>• One optional faculty call if you request it.</li>
-              <li>• Decision reminders only on Days 3 and 6.</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 space-y-2 text-xs text-slate-600 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <p className="text-[11px] font-semibold text-slate-900">
-              Key dates (example cycle)
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="rounded-xl border border-red-500/40 bg-red-50 p-3 space-y-1">
-                <p className="text-[11px] font-semibold text-red-200">
-                  Applications open
-                </p>
-                <p>March 1</p>
-              </div>
-              <div className="rounded-xl border border-blue-500/40 bg-blue-50 p-3 space-y-1">
-                <p className="text-[11px] font-semibold text-blue-200">
-                  Early offers
-                </p>
-                <p>April 15</p>
-              </div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 space-y-1">
-                <p className="text-[11px] font-semibold text-slate-900">
-                  Regular offers
-                </p>
-                <p>May 15</p>
-              </div>
-              <div className="rounded-xl border border-rose-500/40 bg-rose-50 p-3 space-y-1">
-                <p className="text-[11px] font-semibold text-rose-100">
-                  Week Zero
-                </p>
-                <p>Late July</p>
-              </div>
+      {/* Contact Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Need Help?</h2>
+          <p className="text-xl mb-8 text-blue-100">Our admission team is here to assist you</p>
+          
+          <div className="grid gap-6 md:grid-cols-3 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-6">
+              <div className="text-3xl mb-4">📞</div>
+              <h3 className="text-lg font-bold mb-2">Call Us</h3>
+              <p className="text-blue-100">+91 98765 43210</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-6">
+              <div className="text-3xl mb-4">✉️</div>
+              <h3 className="text-lg font-bold mb-2">Email Us</h3>
+              <p className="text-blue-100">admissions@studyhall.edu</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-6">
+              <div className="text-3xl mb-4">📍</div>
+              <h3 className="text-lg font-bold mb-2">Visit Us</h3>
+              <p className="text-blue-100">Lucknow, Uttar Pradesh</p>
             </div>
           </div>
-        </aside>
+        </div>
       </section>
     </div>
   )
